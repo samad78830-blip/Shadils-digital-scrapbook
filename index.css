@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FAF9F6;
+  --color-primary: #E6E6FA;
+  --color-secondary: #F0FFF0;
+  --color-card: #FFFFFF;
+  --color-textSoft: #6B7280;
+  --color-textDark: #1F2937;
+  
+  --font-sans: 'Inter', sans-serif;
+  
+  --shadow-soft: 0 4px 20px rgba(0,0,0,0.04);
+  --shadow-hover: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-textDark font-sans antialiased selection:bg-primary/30 selection:text-textDark;
+  }
+}
+
+/* Hide scrollbar for cleaner look, but keep functionality */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
+
+/* Native CSS Masonry Fallback/Setup for cards */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-item {
+    margin-bottom: 1.5rem;
+  }
+}
